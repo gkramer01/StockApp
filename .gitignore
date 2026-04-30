@@ -52,3 +52,14 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+/.vs/StockApp/CopilotIndices/17.13.444.19527
+/.vs/StockApp/v17
+/.vs/StockApp/FileContentIndex
+/.vs/slnx.sqlite
+/.vs/**
+/StockApp/.vs/StockApp
+/StockApp/.vs/ProjectEvaluation
+/StockApp/src/StockApp.Api/appsettings.Development.json
+/StockApp/src/StockApp.Api/StockApp.Api.csproj.user
+/StockApp/src/StockApp.Api/Properties/launchSettings.json
+/StockApp/src/StockApp.Api/appsettings.json
