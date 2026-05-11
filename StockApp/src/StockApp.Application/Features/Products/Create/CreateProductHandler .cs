@@ -19,9 +19,23 @@ public class CreateProductHandler
         CreateProductCommand request,
         CancellationToken cancellationToken)
     {
-        var product = new Product(request.Name, request.Quantity);
+        var product = new Product(
+            request.Name,
+            request.Quantity
+        );
 
-        await _repository.CreateAsync(product);
+        Console.WriteLine("Tentando criar produto.");
+        try
+        {
+            await _repository.CreateAsync(product, cancellationToken);
+            Console.WriteLine("Produto criado com sucesso.");
+        }
+        catch (Exception ex)
+        {
+
+            throw new Exception("Erro ao criar produto.", ex);
+        }
+
 
         return Result<Guid>.Ok(product.Id);
     }

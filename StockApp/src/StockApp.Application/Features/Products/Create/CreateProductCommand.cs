@@ -1,7 +1,7 @@
-﻿namespace StockApp.Application.Features.Products.Create;
-
-using MediatR;
+﻿using StockApp.Application.Common.Messaging;
 using StockApp.Shared.Result;
 
-public record CreateProductCommand(string Name, int Quantity = 0) : IRequest<Result<Guid>>;
+namespace StockApp.Application.Features.Products.Create;
+
+public record CreateProductCommand(string Name, int Quantity = 0) : ICommand<Result<Guid>>;
 

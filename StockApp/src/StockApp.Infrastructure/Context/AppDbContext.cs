@@ -23,9 +23,15 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
     public AppDbContext CreateDbContext(string[] args)
     {
+        var connectionString =
+            Environment.GetEnvironmentVariable("CONNECTION_STRING");
+
+        if (string.IsNullOrWhiteSpace(connectionString))
+            throw new Exception("CONNECTION_STRING não encontrada.");
+
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-        optionsBuilder.UseNpgsql("Host=db.hcvrvqgbyhksyviaouje.supabase.co;Database=postgres;Username=postgres;Password=Kat272666@@;TrustServerCertificate=True");
+        optionsBuilder.UseNpgsql(connectionString);
 
         return new AppDbContext(optionsBuilder.Options);
     }
