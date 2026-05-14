@@ -62,4 +62,4 @@ nunit-*.xml
 /StockApp/src/StockApp.Api/appsettings.Development.json
 /StockApp/src/StockApp.Api/StockApp.Api.csproj.user
 /StockApp/src/StockApp.Api/Properties/launchSettings.json
-/StockApp/src/StockApp.Api/appsettings.json
+# /StockApp/src/StockApp.Api/appsettings.json

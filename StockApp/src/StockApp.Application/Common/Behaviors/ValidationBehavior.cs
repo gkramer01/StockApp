@@ -57,13 +57,9 @@ public class ValidationBehavior<TRequest, TResponse>
             var method = typeof(Result<>)
                 .MakeGenericType(genericType)
                 .GetMethod(
-                    nameof(Result<>.Fail),
+                    nameof(Result<object>.Fail),
                     [typeof(List<Error>)]
-                );
-
-            if (method == null)
-                throw new InvalidOperationException("Fail(List<Error>) method not found");
-
+            ) ?? throw new InvalidOperationException("Fail(List<Error>) method not found");
             var result = method.Invoke(null, [errors]);
 
             return (TResponse)result!;
