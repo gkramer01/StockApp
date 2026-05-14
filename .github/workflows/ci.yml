@@ -31,31 +31,32 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x
+          include-prerelease: true
 
 
       # --------------------
       # Restore
       # --------------------
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore StockApp/StockApp.sln
 
 
       # --------------------
       # Build
       # --------------------
       - name: Build
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build StockApp/StockApp.sln --no-restore --configuration Release
 
 
       # --------------------
       # Test
       # --------------------
       - name: Run tests
-        run: dotnet test --no-build --configuration Release
+        run: dotnet test StockApp/StockApp.sln --no-build --configuration Release
 
 
       # --------------------
       # Docker Build
       # --------------------
       - name: Build Docker image
-        run: docker build -t stockapp .
+        run: docker build -t stockapp ./StockApp
