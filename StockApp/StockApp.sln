@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.6.11709.129 insiders
+VisualStudioVersion = 18.6.11709.129
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockApp.Infrastructure", "src\StockApp.Infrastructure\StockApp.Infrastructure.csproj", "{426CD8C9-DBD5-4F42-B254-47E340D45793}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockApp.Application", "src\StockApp.Application\StockApp.Application.csproj", "{864C21D8-1FEA-4D4A-8B3A-4000DFC88B10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{21A73900-7ECE-4744-AFBE-E6D544429249}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockApp.Application.Tests", "tests\StockApp.Application.Tests\StockApp.Application.Tests.csproj", "{2DEFBD0D-CCB4-4363-A902-6B6F9714FEDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,10 @@ Global
 		{864C21D8-1FEA-4D4A-8B3A-4000DFC88B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{864C21D8-1FEA-4D4A-8B3A-4000DFC88B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{864C21D8-1FEA-4D4A-8B3A-4000DFC88B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DEFBD0D-CCB4-4363-A902-6B6F9714FEDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DEFBD0D-CCB4-4363-A902-6B6F9714FEDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DEFBD0D-CCB4-4363-A902-6B6F9714FEDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DEFBD0D-CCB4-4363-A902-6B6F9714FEDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +59,7 @@ Global
 		{52C87905-1A59-46EC-9733-23080018CEAD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{426CD8C9-DBD5-4F42-B254-47E340D45793} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{864C21D8-1FEA-4D4A-8B3A-4000DFC88B10} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{2DEFBD0D-CCB4-4363-A902-6B6F9714FEDD} = {21A73900-7ECE-4744-AFBE-E6D544429249}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E392B8E3-3C71-4805-8698-EF193CBA7B4F}

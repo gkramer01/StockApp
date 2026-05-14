@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using StockApp.Application.Features.Products.Create;
+using StockApp.Application.Features.Products.Delete;
 using StockApp.Application.Features.Products.GetAll;
 using StockApp.Application.Features.Products.GetById;
+using StockApp.Application.Features.Products.Update;
 
 namespace StockApp.Api.Controllers;
 
@@ -40,6 +42,31 @@ public static class ProductsController
             }
 
             return Results.Ok(result.Data);
+        });
+
+        app.MapPut("/products/{id:guid}", async (Guid id, UpdateProductCommand command, IMediator mediator) =>
+        {
+            var updatedCommand = command with { Id = id };
+
+            var result =
+                await mediator.Send(updatedCommand);
+
+            return result.Success
+                ? Results.NoContent()
+                : Results.BadRequest(result);
+        });
+
+        app.MapDelete("/products/{id:guid}", async (Guid id, IMediator mediator) =>
+        {
+            var result = await mediator.Send(new DeleteProductCommand(id));
+            if (!result.Success)
+            {
+                var error = result.Errors.First();
+                if (error.Code == "NOT_FOUND")
+                    return Results.NotFound(error.Message);
+                return Results.BadRequest(result.Errors);
+            }
+            return Results.NoContent();
         });
     }
 }

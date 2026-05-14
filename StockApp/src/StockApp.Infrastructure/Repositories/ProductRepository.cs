@@ -37,15 +37,16 @@ public class ProductRepository(IUnitOfWork uow) : IProductRepository
         await _uow.Connection.ExecuteAsync(command);
     }
 
-    public async Task UpdateQuantityAsync(Guid id, int quantity, CancellationToken cancellationToken)
+    public async Task UpdateAsync(Guid id, string name, int quantity, CancellationToken cancellationToken)
     {
-        var sql = """UPDATE products SET "Quantity" = @Quantity WHERE "Id" = @Id""";
+        var sql = """UPDATE products SET "Name" = @Name, "Quantity" = @Quantity WHERE "Id" = @Id""";
 
         var command = new CommandDefinition(
             sql,
             new
             {
                 Id = id,
+                Name = name,
                 Quantity = quantity
             },
             transaction: _uow.Transaction,

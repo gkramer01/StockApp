@@ -8,7 +8,7 @@ namespace StockApp.Application.Features.Products.Update
     {
         public async Task<Result<Guid>> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
-            await repository.UpdateQuantityAsync(request.Id, request.Quantity, cancellationToken);
+            await repository.UpdateAsync(request.Id, request.Name, request.Quantity, cancellationToken);
             return Result<Guid>.Ok(request.Id);
         }
     }

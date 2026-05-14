@@ -18,8 +18,4 @@
     <ProjectReference Include="..\StockApp.Shared\StockApp.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Products\AddQuantity\" />
-  </ItemGroup>
-
 </Project>
