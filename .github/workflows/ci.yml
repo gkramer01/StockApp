@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # --------------------
+      # Checkout
+      # --------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+
+      # --------------------
+      # Setup .NET
+      # --------------------
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+
+      # --------------------
+      # Restore
+      # --------------------
+      - name: Restore dependencies
+        run: dotnet restore
+
+
+      # --------------------
+      # Build
+      # --------------------
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+
+      # --------------------
+      # Test
+      # --------------------
+      - name: Run tests
+        run: dotnet test --no-build --configuration Release
+
+
+      # --------------------
+      # Docker Build
+      # --------------------
+      - name: Build Docker image
+        run: docker build -t stockapp .
